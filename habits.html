@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="habits.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-logo">
+          <h1>SMILES</h1>
+          <p>Mental Health Solutions</p>
+        </div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="main.html"><i class="fas fa-home"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fas fa-brain"></i> Mental Health Assessment</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-meditation"></i> Guided Meditation</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-clipboard-list"></i> Habit Tracker</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-journal-whills"></i> Daily Journal</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user-md"></i> Find a Therapist</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-chart-line"></i> Progress Insights</a>
+          </li>
+        </ul>
+      </div>
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="header">
+          <h1>Habit Tracker</h1>
+        </div>
+        <div class="habit-tracker">
+          <div class="to-do-list">
+            <h2>To-Do List</h2>
+            <div class="task-list" id="task-list"></div>
+            <div class="new-task">
+              <input
+                type="text"
+                placeholder="Add a new task"
+                id="new-task-input"
+              />
+              <select class="task-priority" id="task-priority">
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+              <button class="add-task" onclick="addTask()">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+          <div class="completed-tasks">
+            <h2>Completed Tasks</h2>
+            <div class="task-list" id="completed-task-list"></div>
+          </div>
+          <div class="habit-progress">
+            <h2>Habit Progress</h2>
+            <div class="chart-container">
+              <canvas id="habitChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="habits.js"></script>
+  </body>
+</html>
