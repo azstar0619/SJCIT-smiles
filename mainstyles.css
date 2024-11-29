@@ -1,0 +1,197 @@
+:root {
+    --primary-color: #4caf50;
+    --secondary-color: #81c784;
+    --background-color: #f0f4f8;
+    --text-color: #2c3e50;
+    --card-background: #ffffff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Arial", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .dashboard-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .sidebar {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    height: fit-content;
+  }
+  
+  .sidebar-logo {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .sidebar-logo h1 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+  
+  .sidebar-logo p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    margin-top: 10px;
+  }
+  
+  .sidebar-menu li {
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-menu a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .sidebar-menu a i {
+    margin-right: 10px;
+  }
+  
+  .sidebar-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .main-content {
+    padding: 20px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+  }
+  
+  .patient-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 0;
+  }
+  
+  .patient-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .patient-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .mental-health-score {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .score-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .score-progress {
+    width: 75%;
+    height: 20px;
+    background-color: var(--primary-color);
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .feature-card {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .feature-card i {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  
+  .feature-card h3 {
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p {
+    color: #666;
+    font-size: 0.9em;
+  }
+  
+  .chatbot-container {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    grid-column: span 3;
+  }
+  
+  .chat-log {
+    height: 500px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .sidebar {
+      display: none;
+    }
+  
+    .feature-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+  }
+  

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMILES - Patient Dashboard</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="mainstyles.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-logo">
+          <h1>SMILES</h1>
+          <p>Mental Health Solutions</p>
+        </div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+          </li>
+          <li>
+            <a href="#"
+              ><i class="fas fa-brain"></i> Mental Health Assessment</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-meditation"></i> Guided Meditation</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-clipboard-list"></i> Habit Tracker</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-journal-whills"></i> Daily Journal</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-user-md"></i> Find a Therapist</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-chart-line"></i> Progress Insights</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Patient Header -->
+        <div class="patient-header">
+          <div class="patient-info">
+            <img src="/api/placeholder/60/60" alt="Patient Profile" />
+            <div>
+              <h2>John Doe</h2>
+              <p>Welcome back to your wellness journey</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mental Health Score -->
+        <div class="mental-health-score">
+          <h3>Your Mental Health Score</h3>
+          <div class="score-bar">
+            <div class="score-progress"></div>
+          </div>
+          <p>Current Level: Moderate (DAF: 75/100)</p>
+        </div>
+
+        <!-- Feature Grid -->
+        <div class="feature-grid">
+          <div class="feature-card">
+            <i class="fas fa-brain"></i>
+            <h3>Mental Health Assessment</h3>
+            <p>Comprehensive mental health evaluation</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-meditation"></i>
+            <img
+              src="./Untitled.png"
+              alt="Guided Meditation Icon"
+              width="100"
+              height="50"
+            />
+            <h3>Guided Meditation</h3>
+            <p>Relaxation and mindfulness sessions</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>Habit Tracker</h3>
+            <p>Monitor and improve daily habits</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-journal-whills"></i>
+            <h3>Daily Journal</h3>
+            <p>Record your thoughts and emotions</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-user-md"></i>
+            <h3>Find a Therapist</h3>
+            <p>Connect with professional support</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Progress Insights</h3>
+            <p>Track your mental health journey</p>
+          </div>
+        </div>
+
+        <!-- Chatbot Section -->
+        <div class="chatbot-container">
+          <h3 style="text-align: center">Chatbot</h3>
+          <div class="chat-log" id="chat-log">
+            <script>
+              window.embeddedChatbotConfig = {
+                chatbotId: "p62STTE_-rxAayS_v2iac",
+                domain: "www.chatbase.co",
+              };
+            </script>
+            <script
+              src="https://www.chatbase.co/embed.min.js"
+              chatbotId="p62STTE_-rxAayS_v2iac"
+              domain="www.chatbase.co"
+              defer
+            ></script>
+
+            <iframe
+              src="https://www.chatbase.co/chatbot-iframe/p62STTE_-rxAayS_v2iac"
+              width="100%"
+              style="height: 100%; border: none; border-radius: 8px"
+              frameborder="0"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
