@@ -2,11 +2,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
 import { 
     getAuth, 
     GoogleAuthProvider, 
-    signInWithPopup,
-    signInWithEmailAndPassword,
-    signOut,
+    signInWithPopup, 
+    signInWithEmailAndPassword, 
     onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
 // Firebase Configuration
 const firebaseConfig = {
@@ -21,16 +21,42 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
 // Redirect functions
+function redirectToQuestionnairePage() {
+    window.location.href = 'DAFquestion.html';
+}
+
 function redirectToMainPage() {
     window.location.href = 'main.html';
 }
 
-function redirectToLoginPage() {
-    window.location.href = 'index.html';
-}
+// Signup Button Handler
+document.getElementById('signup-btn')?.addEventListener('click', async () => {
+    try {
+        // Attempt Google Sign-Up
+        const result = await signInWithPopup(auth, googleProvider);
+        const user = result.user;
+
+        // Check if this is the first time the user is signing up
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        if (!userDoc.exists()) {
+            // First-time user
+            await setDoc(doc(db, "users", user.uid), {
+                email: user.email,
+                createdAt: new Date().toISOString()
+            });
+            redirectToQuestionnairePage(); // Redirect to the questionnaire
+        } else {
+            redirectToMainPage(); // Existing user
+        }
+    } catch (error) {
+        console.error("Signup Error:", error);
+        alert("Signup failed: " + error.message);
+    }
+});
 
 // Login Button Handler
 document.getElementById('login-btn')?.addEventListener('click', async () => {
@@ -47,47 +73,12 @@ document.getElementById('login-btn')?.addEventListener('click', async () => {
     }
 });
 
-// Signup Button Handler
-document.getElementById('signup-btn')?.addEventListener('click', async () => {
-    try {
-        // Attempt Google Sign-Up
-        const result = await signInWithPopup(auth, googleProvider);
-        const user = result.user;
-
-        console.log("User signed up:", user);
-        redirectToMainPage();
-    } catch (error) {
-        console.error("Signup Error:", error);
-        alert("Signup failed: " + error.message);
-    }
-});
-
-// Logout Button Handler
-document.getElementById('logout-btn')?.addEventListener('click', async () => {
-    try {
-        await signOut(auth);
-        // Delay added for logout process completion
-        setTimeout(() => {
-            redirectToLoginPage();
-        }, 500);
-    } catch (error) {
-        console.error("Logout Error:", error);
-        alert("Logout failed: " + error.message);
-    }
-});
-
 // Authentication State Observer
 onAuthStateChanged(auth, (user) => {
-    // Current page path
-    const currentPath = window.location.pathname;
-
+    // Do nothing unless the user clicks a button
     if (user) {
-        if (currentPath.endsWith('index.html') || currentPath === '/') {
-            redirectToMainPage();
-        }
+        console.log("User is authenticated:", user.email);
     } else {
-        if (!currentPath.endsWith('index.html') && currentPath !== '/') {
-            redirectToLoginPage();
-        }
+        console.log("No user is authenticated.");
     }
 });

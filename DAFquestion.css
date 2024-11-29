@@ -31,6 +31,12 @@ h1 {
     font-size: 24px;
 }
 
+h2 {
+    color: #00796b;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
 p {
     margin-bottom: 30px;
     color: #777;
@@ -47,6 +53,7 @@ form {
     margin-bottom: 10px;
     font-weight: bold;
     color: #333;
+    text-align: left;
 }
 
 .question input[type="range"] {
