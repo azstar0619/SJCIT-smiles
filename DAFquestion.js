@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 return sliderValue + 0; // Map other values from 1 to 9
             }
-    });
+        });
 
         // Print all slider values (mapped from 0-10 to 1-10)
         console.log('Mapped Slider values (1-10):', responses);
@@ -38,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             console.error('Invalid responses. Please check the sliders.');
         }
+
+        // Redirect to main.html after submission
+        window.location.href = 'main.html';
     });
 });
 
@@ -61,7 +64,7 @@ function calculateGAF(responses) {
     else if (totalScore >= 21) gafScore = "Severe impairment (21-30)";
     else if (totalScore >= 11) gafScore = "Very severe impairment (11-20)";
     else if (totalScore >= 1) gafScore = "Persistent danger or unable to care for self (1-10)";
-    else gafScore = "Invalid score";
+    else totalScore = "Invalid score";
 
     return {
         averageScore: averageScore,
