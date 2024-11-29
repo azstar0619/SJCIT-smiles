@@ -1,0 +1,106 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #555;
+}
+
+.questionnaire-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.questionnaire-container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    color: #00796b;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    margin-bottom: 30px;
+    color: #777;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.question input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #ccc;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.question input[type="range"]:hover {
+    opacity: 1;
+}
+
+.question input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #00796b;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.question input[type="range"]::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #00796b;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+span {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #777;
+}

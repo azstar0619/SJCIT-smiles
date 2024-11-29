@@ -4,7 +4,8 @@ import {
     GoogleAuthProvider, 
     signInWithPopup,
     signInWithEmailAndPassword,
-    signOut
+    signOut,
+    onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js";
 
 // Firebase Configuration
@@ -65,7 +66,10 @@ document.getElementById('signup-btn')?.addEventListener('click', async () => {
 document.getElementById('logout-btn')?.addEventListener('click', async () => {
     try {
         await signOut(auth);
-        redirectToLoginPage();
+        // Delay added for logout process completion
+        setTimeout(() => {
+            redirectToLoginPage();
+        }, 500);
     } catch (error) {
         console.error("Logout Error:", error);
         alert("Logout failed: " + error.message);
@@ -73,18 +77,16 @@ document.getElementById('logout-btn')?.addEventListener('click', async () => {
 });
 
 // Authentication State Observer
-auth.onAuthStateChanged((user) => {
+onAuthStateChanged(auth, (user) => {
     // Current page path
     const currentPath = window.location.pathname;
 
     if (user) {
-        // If user is signed in and not on main page, redirect to main page
-        if (!currentPath.includes('main.html')) {
+        if (currentPath.endsWith('index.html') || currentPath === '/') {
             redirectToMainPage();
         }
     } else {
-        // If no user and not on login page, redirect to login page
-        if (!currentPath.includes('index.html')) {
+        if (!currentPath.endsWith('index.html') && currentPath !== '/') {
             redirectToLoginPage();
         }
     }
